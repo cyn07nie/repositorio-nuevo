@@ -32,24 +32,24 @@
               <!-- Submit -->
               
               <button type="submit" id="submit">Login</button>
-             
-			 <script type="text/javascript">
-				function validar()
-				{
-					if(   document.getElementById("username").value == ""
-					   && document.getElementById("password").value == "" )
-					{
+              <script type="text/javascript">
+                function validar()
+                {
+                  if(   document.getElementById("username").value != null
+                     && document.getElementById("password").value != null )
+                  {
 						
-						window.location.href='inicio.html';
+			window.location.href='inicio.html';
 						
-					}
-					else
-					{
-						alert( "Los datos ingresados no son correctos." );
-						window.location.href = 'index.html';
-					}
-				}
-			</script>
+			}
+		else
+		{
+					
+		window.location.href='inicio.html';
+		}
+                }
+              </script>
+		
            
               
             
