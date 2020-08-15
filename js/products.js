@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
-            Productos = resultObj.data;
+            Producto= resultObj.data;
             //Muestro las categorías ordenadas
-          TodosProductos(Productos);
+          TodosProductos(Producto);
         }
     });
 });
