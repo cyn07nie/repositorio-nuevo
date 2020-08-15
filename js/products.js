@@ -1,39 +1,41 @@
-var Productos = [];
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function (e) {
 
-function TodosProductos(array){
+});
+var productsArray = [];
 
+function showProductsList(array) {
     let htmlContentToAppend = "";
-    for(let i = 0; i < array.length; i++){
-        let Productoss = array[i];
-
+    for (let i = 0; i < array.length; i++) {
+        let producto = array[i];
+        
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
-                    <img src="` + Producto.imgSrc + `" alt="` + Producto.description + `" class="img-thumbnail">
+                    <img src="` + producto.imgSrc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ Producto.name +`</h4>
-                        <small class="text-muted">` + Producto.soldCount + ` artículos</small>
-                    </div>
-                    <p>`+ Producto.description +`</p>
-                </div>
-            </div>
-        </div>
+                        <h4 class="mb-1">`+ producto.name + `</h4>
+                        <small class="font-muted">` + producto.currency + " $" + producto.cost + `<br> `+ producto.soldCount + ` artículos vendidos </small>                    
+                     </div>
+                     ${producto.description}
+                 </div>
+             </div>
+         </div>
         `
-
-        document.getElementById("Lista-Productos").innerHTML = htmlContentToAppend;
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend;
     }
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
-            Productos= resultObj.data;
-           
-          TodosProductos(Productos);
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data;
+            showProductsList(productsArray);
         }
     });
 });
