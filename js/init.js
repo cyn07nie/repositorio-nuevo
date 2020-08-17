@@ -25,9 +25,9 @@ var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }
   
-var getJSONData = function(PRODUCTS_URL){
+var getJSONData = function(url){
     var result = {};
-    return fetch(PRODUCTS_URL) 
+    return fetch(url) 
     .then(response => {
       if (response.ok) {
         
